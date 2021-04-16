@@ -81,6 +81,6 @@ app.get("*", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/index.html"))
 );
 
-// Listener
+// server listener 
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
