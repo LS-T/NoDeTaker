@@ -1,6 +1,7 @@
 # NoDeTaker
+![Screen Shot 2021-04-16 at 7 06 35 PM](https://user-images.githubusercontent.com/79895233/115091919-e7968480-9ee6-11eb-9115-c22590a96cbb.png)
 
-This application allows a user to keep up with their tasks by giving them the capability to store their saved notes to the generated server. Using express GET, POST, DELETE the app allows the user to interact with the server.
+This application allows a user to keep up with their tasks by giving them the capability to store their saved notes to the generated server. Using express GET, POST, DELETE the app allows the user to interact with the server. 
 
 # User Story
 
@@ -11,4 +12,4 @@ This application allows a user to keep up with their tasks by giving them the ca
 # Deployed
 https://stormy-caverns-55569.herokuapp.com/
 
-![Screen Shot 2021-04-16 at 7 06 35 PM](https://user-images.githubusercontent.com/79895233/115091919-e7968480-9ee6-11eb-9115-c22590a96cbb.png)
+
