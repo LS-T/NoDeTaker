@@ -73,10 +73,15 @@ app.delete("/api/notes/:id", (req, res) => {
 });
 
 // HTML routes
+// Default homepage
+app.get("/"), (req,res) => 
+  res.sendFile(path.join(__dirname, '/public/index.html') 
+);
 app.get("/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/notes.html"))
 );
 
+//  universal selector - send the user back to homepage if any unknown url is inputted
 app.get("*", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/index.html"))
 );
