@@ -2,6 +2,7 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+// Random id generator 
 const { v4: uuidv4 } = require("uuid");
 
 // Set app to express method
@@ -26,11 +27,11 @@ app.get("/api/notes", (err, res) => {
     console.log(new Error("something went wrong"));
     res.send(err);
   }
-  // send notes to browser
+  
 });
 
 app.post("/api/notes", (req, res) => {
-  // let new note = posted object
+  
 
   try {
     // Read notes from json file
@@ -40,7 +41,7 @@ app.post("/api/notes", (req, res) => {
     noteData = JSON.parse(noteData);
     let newNote = req.body;
     console.log(newNote);
-    // generate a random ID for posted note
+    
 
     // assign a id property to newNote using uuidv4() method
     newNote.id = uuidv4();
@@ -56,15 +57,19 @@ app.post("/api/notes", (req, res) => {
   }
 });
 
+// search for by parameter id 
 app.delete("/api/notes/:id", (req, res) => {
   try {
+    // Read and parse data in db.json file 
     let noteData = fs.readFileSync("./db/db.json", "utf8");
     noteData = JSON.parse(noteData);
+    // filter method used to pass the note object and filter notes that pass the if conditional 
     let filteredNote = noteData.filter((note) => {
       if (note.id !== req.params.id) {
         return note;
       }
     });
+    // Stringify filteredNote so it can be written to db.json file 
     fs.writeFileSync("./db/db.json", JSON.stringify(filteredNote), "utf8");
     res.send("successfully deleted note");
   } catch (err) {
@@ -73,6 +78,7 @@ app.delete("/api/notes/:id", (req, res) => {
 });
 
 // HTML routes
+
 // Default homepage
 app.get("/"), (req,res) => 
   res.sendFile(path.join(__dirname, '/public/index.html') 
